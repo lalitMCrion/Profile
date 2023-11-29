@@ -1,6 +1,7 @@
 name: Update Commits
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'  # Schedule it to run every day
 
