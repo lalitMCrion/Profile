@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Set Up Git
+      - name: Set Git Config
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
