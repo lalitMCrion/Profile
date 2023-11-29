@@ -1,0 +1,28 @@
+name: Update Commits
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Schedule it to run every day
+
+jobs:
+  update-commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Fetch All Branches
+        run: git fetch --all
+
+      - name: Update Commits File
+        run: |
+          git log --all --pretty=format:"%h %s" > commits.txt
+          git add commits.txt
+          git commit -m "Update commits [skip ci]" || exit 0
+          git push
