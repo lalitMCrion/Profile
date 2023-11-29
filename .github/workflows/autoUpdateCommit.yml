@@ -18,7 +18,6 @@ jobs:
       - name: Set Git Config
         run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
 
       - name: Fetch All Branches
         run: git fetch --all
